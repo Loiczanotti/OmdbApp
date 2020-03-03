@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/movie_detail_activity_graph"
+    app:startDestination="@id/movieDetailFragment">
+
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.loicz.omdbapi.presentation.ui.movielist.fragment.MovieDetailFragment"
+        android:label="MovieDetailFragment">
+        <argument
+            android:name="imdbId"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

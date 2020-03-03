@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: "androidx.navigation.safeargs"
+
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.loicz.omdbapi"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Dependencies.KOTLIN
+    testImplementation Dependencies.JUNIT
+    implementation Dependencies.SUPPORT_LIBS
+    implementation Dependencies.KTX
+    implementation Dependencies.KOIN
+    implementation Dependencies.GSON
+    implementation Dependencies.NETWORK
+    implementation Dependencies.NAVIGATION
+    implementation Dependencies.GLIDE
+    implementation Dependencies.RX_KOTLIN
+    implementation Dependencies.RX_JAVA2
+}

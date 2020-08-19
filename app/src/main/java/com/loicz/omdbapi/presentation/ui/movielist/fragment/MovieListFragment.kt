@@ -30,7 +30,6 @@ class MovieListFragment : BaseFragment() {
         val search = menu.findItem(R.id.action_search)
         val searchView = search.actionView as SearchView
         searchView.setIconifiedByDefault(false)
-
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
@@ -42,6 +41,7 @@ class MovieListFragment : BaseFragment() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText != null && newText.isBlank()) {
+                    lastSearch = null
                     movieListAdapter.clearList()
                 }
                 return false
@@ -54,11 +54,10 @@ class MovieListFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).setSupportActionBar(fragment_list_movie_toolbar)
-        (activity as AppCompatActivity).supportActionBar?.title =
+        (requireActivity() as AppCompatActivity).setSupportActionBar(fragment_list_movie_toolbar)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
             getString(R.string.fragment_movie_list_toolbar_title)
         setHasOptionsMenu(true)
-
 
         setUpRecyclerView()
         initiateViewModelObservers()

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/movieDetailFragment"
-        android:name="com.loicz.omdbapi.presentation.ui.movielist.fragment.MovieDetailFragment"
+        android:name="com.loicz.omdbapi.presentation.ui.moviedetail.fragment.MovieDetailFragment"
         android:label="MovieDetailFragment">
         <argument
             android:name="imdbId"

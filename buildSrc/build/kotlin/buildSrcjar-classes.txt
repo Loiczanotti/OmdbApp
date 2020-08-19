@@ -1,1 +1,1 @@
-/Users/lzanotti/OmdbApi/buildSrc/build/classes/kotlin/main/Dependencies.class:/Users/lzanotti/OmdbApi/buildSrc/build/classes/kotlin/main/Versions.class
+/Users/lzanotti/OmdbApp/buildSrc/build/classes/kotlin/main/Dependencies.class:/Users/lzanotti/OmdbApp/buildSrc/build/classes/kotlin/main/Versions.class

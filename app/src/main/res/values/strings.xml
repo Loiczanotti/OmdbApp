@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">OmdbApi</string>
     <string name="fragment_movie_list_toolbar_title">Box Office</string>
+    <string name="released_date">Released date: %s</string>
 </resources>

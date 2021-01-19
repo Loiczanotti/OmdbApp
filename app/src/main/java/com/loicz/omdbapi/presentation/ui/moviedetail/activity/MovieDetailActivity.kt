@@ -1,4 +1,4 @@
-package com.loicz.omdbapi.presentation.ui.movielist.activity
+package com.loicz.omdbapi.presentation.ui.moviedetail.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

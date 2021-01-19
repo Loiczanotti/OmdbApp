@@ -51,4 +51,14 @@ object Dependencies {
 
     const val SAFE_ARGS_PLUGIN = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.NAVIGATION}"
 
+    const val LOTTIE = "com.airbnb.android:lottie:${Versions.LOTTIE}"
+
+    @JvmField
+    val FIREBASE = arrayOf(
+        "com.google.firebase:firebase-firestore:${Versions.FIREBASE_FIRESTORE}",
+        "com.google.firebase:firebase-auth:${Versions.FIREBASE_AUTH}",
+        "com.google.firebase:firebase-core:${Versions.FIREBASE_CORE}",
+        "com.firebaseui:firebase-ui-storage:${Versions.FIREBASE_UI}",
+        "com.google.firebase:firebase-messaging:${Versions.FIREBASE_MESSAGING}"
+    )
 }

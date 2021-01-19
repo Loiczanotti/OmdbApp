@@ -12,4 +12,10 @@ class SnackBarComponentImpl: SnackBarComponent {
         snackbar.view.setBackgroundColor(ContextCompat.getColor(context, android.R.color.holo_red_dark))
         snackbar.show()
     }
+
+    override fun showSnackBarSuccess(view: View, message: String, context: Context) {
+        val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+        snackbar.view.setBackgroundColor(ContextCompat.getColor(context, android.R.color.holo_green_dark))
+        snackbar.show()
+    }
 }

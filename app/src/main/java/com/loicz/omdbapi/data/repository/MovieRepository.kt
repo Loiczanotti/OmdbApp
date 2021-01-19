@@ -3,6 +3,7 @@ package com.loicz.omdbapi.data.repository
 import com.loicz.omdbapi.data.entity.mapper.MovieRemoteEntityDataMapper
 import com.loicz.omdbapi.data.manager.MovieManager
 import com.loicz.omdbapi.data.model.Movie
+import io.reactivex.Completable
 import io.reactivex.Single
 
 class MovieRepository(
@@ -13,12 +14,20 @@ class MovieRepository(
     fun searchMovieFromTitle(title: String): Single<List<Movie>> {
        return movieManager.searchMovieListFromTitle(title).map {
            movieRemoteEntityDataMapper.transformFromRemoteEntityList(it.movieList)
+
+
        }
     }
 
     fun searchMovieById(id: String): Single<Movie> {
         return movieManager.searchMovieById(id).map {
             movieRemoteEntityDataMapper.transformFromRemoteEntity(it)
+        }
+    }
+
+    fun saveMovie(movie: Movie): Completable {
+        return Completable.fromAction {
+            movieManager.saveMovie(movie)
         }
     }
 }

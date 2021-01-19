@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "820583192589",
+    "firebase_url": "https://intouch-staging.firebaseio.com",
+    "project_id": "intouch-staging",
+    "storage_bucket": "intouch-staging.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820583192589:android:48cbbd8b2b17cdf7219d44",
+        "android_client_info": {
+          "package_name": "com.loicz.omdbapi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820583192589-pnsv6geejiqm87tumea91ah6topndfc3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDu4Dygu7T8j82s3wvHVFS5b-xOyJHwLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820583192589-pnsv6geejiqm87tumea91ah6topndfc3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "820583192589-qcl3dqaluqr8hrrppjsrafsbfnprpbre.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.myluckyday.360medics",
+                "app_store_id": "919490169"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820583192589:android:fd6a1f4ed6f44578",
+        "android_client_info": {
+          "package_name": "com.myluckyday.tcsmedics.beta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820583192589-pnsv6geejiqm87tumea91ah6topndfc3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDu4Dygu7T8j82s3wvHVFS5b-xOyJHwLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820583192589-pnsv6geejiqm87tumea91ah6topndfc3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "820583192589-qcl3dqaluqr8hrrppjsrafsbfnprpbre.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.myluckyday.360medics",
+                "app_store_id": "919490169"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

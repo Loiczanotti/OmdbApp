@@ -62,6 +62,14 @@ class MovieDetailFragment : BaseFragment() {
                 }
             }
         }
+
+        movieDetailFragmentViewModel.savedMovieLiveData.observeSafe(this) {
+            snackBarComponent.showSnackBarSuccess(
+                fragment_movie_detail_container,
+                "Film enregistré avec Succès !",
+                requireContext()
+            )
+        }
     }
 
     private fun bindItemView(movie: Movie) {
@@ -78,5 +86,9 @@ class MovieDetailFragment : BaseFragment() {
         om_fragment_movie_detail_released.text =
             requireContext().getString(R.string.released_date, movie.released)
         Glide.with(requireContext()).load(movie.poster).into(om_fragment_movie_detail_image)
+
+        om_fragment_movie_detail_save_movie.setOnClickListener {
+            movieDetailFragmentViewModel.saveMovie(movie)
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.loicz.omdbapi.presentation.ui.movielist.viewmodel
 
+import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.loicz.omdbapi.data.model.Movie
@@ -43,4 +44,5 @@ class MovieListFragmentViewModel(
                 }
             ))
     }
+
 }

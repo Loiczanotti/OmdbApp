@@ -17,6 +17,7 @@ class MovieDetailFragmentViewModel(
     val movieLiveData: MutableLiveData<Movie> = MutableLiveData()
     val errorLiveData: MutableLiveData<Throwable> = MutableLiveData()
     val viewState: MutableLiveData<MovieDetailFragmentViewState> = MutableLiveData()
+    val savedMovieLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
     private val currentViewState = MovieDetailFragmentViewState()
 
@@ -29,5 +30,21 @@ class MovieDetailFragmentViewModel(
                     onError = errorLiveData::postValue
                 )
         )
+    }
+
+    fun saveMovie(movie: Movie) {
+        compositeDisposable.add(movieRepository.saveMovie(movie).subscribeBy(
+            onComplete = {
+                savedMovieLiveData.postValue(true)
+            },
+            onError = {
+                errorLiveData.postValue(it)
+            }
+        ))
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        compositeDisposable.clear()
     }
 }

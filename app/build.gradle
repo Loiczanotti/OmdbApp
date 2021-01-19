@@ -6,13 +6,14 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: "androidx.navigation.safeargs"
 
+apply plugin: 'com.google.gms.google-services'  // Google Services plugin
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     defaultConfig {
         applicationId "com.loicz.omdbapi"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -36,6 +37,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Dependencies.KOTLIN
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-database-ktx'
     testImplementation Dependencies.JUNIT
     implementation Dependencies.SUPPORT_LIBS
     implementation Dependencies.KTX
@@ -46,4 +51,7 @@ dependencies {
     implementation Dependencies.GLIDE
     implementation Dependencies.RX_KOTLIN
     implementation Dependencies.RX_JAVA2
+    implementation Dependencies.LOTTIE
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+
 }

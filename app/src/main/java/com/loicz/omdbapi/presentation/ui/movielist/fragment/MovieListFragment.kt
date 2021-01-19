@@ -1,5 +1,8 @@
 package com.loicz.omdbapi.presentation.ui.movielist.fragment
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -8,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.storage.FirebaseStorage
 import com.loicz.omdbapi.R
 import com.loicz.omdbapi.presentation.component.SnackBarComponent
 import com.loicz.omdbapi.presentation.extension.observeSafe
@@ -17,6 +21,9 @@ import com.loicz.omdbapi.presentation.ui.movielist.viewmodel.MovieListFragmentVi
 import kotlinx.android.synthetic.main.fragment_list_movie.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.*
+
+private const val CHOOSE_FILE_REQUESTCODE = 200
 
 class MovieListFragment : BaseFragment() {
 
@@ -61,6 +68,52 @@ class MovieListFragment : BaseFragment() {
 
         setUpRecyclerView()
         initiateViewModelObservers()
+        setUpViews()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CHOOSE_FILE_REQUESTCODE && resultCode == RESULT_OK
+            && data != null
+            && data.data != null
+        ) {
+            val filePath = data.data
+            filePath?.let { uploadImageToFirebase(fileUri = it) }
+        }
+    }
+
+    private fun uploadImageToFirebase(fileUri: Uri) {
+        val fileName = UUID.randomUUID().toString() + ".jpg"
+        val refStorage = FirebaseStorage.getInstance().reference.child("images/$fileName")
+
+        refStorage.putFile(fileUri)
+            .addOnSuccessListener { taskSnapshot ->
+                taskSnapshot.storage.downloadUrl.addOnSuccessListener {
+                    snackBarComponent.showSnackBarSuccess(
+                        fragment_list_movie_container,
+                        "L'image a été chargée avec succès",
+                        requireContext()
+                    )
+                }
+            }
+            .addOnFailureListener { e ->
+                print(e.message)
+                snackBarComponent.showSnackBarError(
+                    fragment_list_movie_container,
+                    "L'image n'a pas pu être chargée",
+                    requireContext()
+                )
+            }
+    }
+
+    private fun setUpViews() {
+        om_fragment_movie_list_add_pj.setOnClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            intent.type = "*/*"
+            val i = Intent.createChooser(intent, "File")
+            startActivityForResult(i, CHOOSE_FILE_REQUESTCODE)
+        }
     }
 
     private fun setUpRecyclerView() {
@@ -96,7 +149,13 @@ class MovieListFragment : BaseFragment() {
 
         movieListFragmentViewModel.errorLiveData.observeSafe(this) {
             it.message?.let { message ->
-                view?.let { view -> snackBarComponent.showSnackBarError(view, message, requireContext()) }
+                view?.let { view ->
+                    snackBarComponent.showSnackBarError(
+                        view,
+                        message,
+                        requireContext()
+                    )
+                }
             }
         }
     }

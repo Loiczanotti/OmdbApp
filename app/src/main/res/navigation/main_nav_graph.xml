@@ -17,9 +17,8 @@
 
     <activity
         android:id="@+id/movieDetailActivity"
-        android:name="com.loicz.omdbapi.presentation.ui.movielist.activity.MovieDetailActivity"
+        android:name="com.loicz.omdbapi.presentation.ui.moviedetail.activity.MovieDetailActivity"
         android:label="MovieDetailActivity">
         <argument android:name="imdbId" app:argType="string" />
     </activity>
-
 </navigation>

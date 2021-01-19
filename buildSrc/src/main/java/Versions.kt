@@ -9,6 +9,11 @@ object Versions {
     const val KTX_FRAGMENTS = "1.2.1"
     const val KOIN = "2.0.1"
     const val GRADLE_PLUGIN = "3.5.3"
+    const val FIREBASE_FIRESTORE = "17.1.2"
+    const val FIREBASE_AUTH = "16.0.5"
+    const val FIREBASE_MESSAGING = "17.6.0"
+    const val FIREBASE_CORE = "16.0.4"
+    const val FIREBASE_UI = "4.3.2"
 
     const val RETROFIT = "2.7.1"
     const val GLIDE = "4.11.0"
@@ -18,5 +23,6 @@ object Versions {
     const val JUNIT = "4.12"
     const val RX_KOTLIN = "2.4.0"
     const val RX_JAVA2 = "2.2.17"
+    const val LOTTIE = "3.0.7"
 
 }

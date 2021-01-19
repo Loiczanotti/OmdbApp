@@ -13,7 +13,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL = "https://www.omdbapi.com/"
+private const val BASE_URL = "http://www.omdbapi.com/"
 
 val apiModule = module {
 
